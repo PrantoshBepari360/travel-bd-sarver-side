@@ -33,6 +33,11 @@ async function run() {
       res.send(Travel);
     })
 
+    app.get('/allOrders', async (req, res) => {
+      const result = await orderCollection.find({}).toArray();
+      res.send(result);
+    })
+
     // GET SINGLE API
     app.get('/Travels/:id', async (req, res) => {
       const id = req.params.id;
